@@ -3,7 +3,7 @@ body {
 }
 
 .wrap {
-     display: flex;
+     display: block;
      justify-content: center;
      align-items: center;
      width: 100%;
@@ -21,14 +21,14 @@ body {
 }
 
 /* 헤더 하단 컨텐츠 */
-.my_box {
+.container {
      position: relative;
      display: flex;
      justify-content: center;
      align-items: center;
 }
 
-.my_box .content_box{
+.profile{
      position: relative;
      width: 800px;
      height: 400px;
