@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vanilla SPA Router</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="root">  
+        <header class="header">
+            <a href="#loginpage" onclick="route(event)">로그인하기</a>
+            <a href="#mypage" onclick="route(event)">마이페이지</a>
+        </header>
+        <div id="main-page"></div>
+    </div>
+
+    <script src="js/router.js"></script>
+</body>
+
+</html>
