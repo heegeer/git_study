@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vanilla SPA Router</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="root">
+        <nav id="main-nav" class="sidebar">
+            <!-- click하면 route 함수 실행함 -->
+            <a href="/" onclick="route(event)">Home</a>
+            <a href="#about" onclick="route(event)">About</a>
+            <a href="#lorem" onclick="route(event)">Lorem</a>
+        </nav>
+        <div id="main-page"></div>
+    </div>
+
+    <script src="js/router.js"></script>
+</body>
+
+</html>
