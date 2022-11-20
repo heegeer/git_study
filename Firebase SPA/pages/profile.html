@@ -1,0 +1,21 @@
+<div id="profilePage">
+    <section id="profileWrapper">
+        <h2>프로필 관리</h2>
+        <form id="profileForm" onsubmit="changeProfile(event)">
+
+            <!-- label 태그와 input 태그의 id 값이 동일함
+            이미지를 클릭 = label을 클릭 = input을 클릭하는 것과 똑같은 것으로 취급함
+            input 태그는 display: none으로 설정해서 보이지 않음
+            input type="file"로 하면 클릭했을 때 자동으로 파일 탐색기가 뜸 -->
+            <label id="imgLabel" for="imgInput">
+                <img id="profileView" src="/assets/blankProfile.webp" />
+                <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
+            </label>
+            <div>
+                <input id="profileNickname" type="text" placeholder="현재 닉네임" value="" />
+            </div>
+            <br />
+            <input id="profileBtn" type="submit" value="프로필 변경" />
+        </form>
+    </section>
+</div>
