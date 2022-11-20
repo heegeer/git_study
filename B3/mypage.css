@@ -21,7 +21,7 @@ body {
 }
 
 /* 헤더 하단 컨텐츠 */
-.container {
+.profile-section {
      position: relative;
      display: flex;
      justify-content: center;
@@ -37,12 +37,11 @@ body {
      margin: 100px auto;
      display: flex;
      justify-content: center;
-     align-items: center;
+     align-items: center
 }
 
 /* 프로필 이미지 부분 */
-.image_area {
-     position: relative;
+.profile__image-box {
      box-sizing: border-box;
      display: flex;
      flex-direction: column;
@@ -54,8 +53,7 @@ body {
      padding: 30px;
 }
 
-/* 프로필 이미지 */
-.image_area .profile_img {
+.profile__image {
      height: 200px;
      height: 200px;
      padding: 0;
@@ -64,25 +62,24 @@ body {
      overflow: hidden;
 }
 
-/* 이미지 변경 버튼 */
-.upload_btn {
+.profile__upload-btn {
      height: 40px;
      width: 180px;
      border: 1px solid #000;
      border-radius: 20px;
      margin-top: 40px;
-     margin-left: 10px;
+     margin-left: 5px;
      display: flex;
      justify-content: center;
      align-items: center;
 }
 
-.image_area .upload_btn .upload_txt {
+.profile__upload-txt {
      text-align: center;
 }
 
 /* 닉네임, 이메일 부분 */
-.text_area {
+.profile__text-box {
      box-sizing: border-box;
      display: flex;
      flex-direction: column;
@@ -90,64 +87,62 @@ body {
      align-items: center;
      width: 500px;
      height: 400px;
-     padding: 0 40px;
+     padding: 70px 50px;
 }
 
-.text_area .name_box {
-     margin-top: 45px;
-     height: 100px;
-     width: 420px;
-     /* border: 1px solid #000; */
-}
-
-.name, .name_val, .mail, .mail_val {
+.profile__name, .profile__name-val, .profile__mail, .profile__mail-val {
      font-size: 20px;
 }
 
-.text_area .name_box .name {
-     width: 120px;
+.profile__name-box {
+     margin-top: 10px;
+     padding: 20px 0;
+     width: 400px;
+}
+
+.profile__name {
+     width: 130px;
      float: left;
 }
 
-.text_area .name_btn {
+.profile__name-btn-box {
+     width: 400px;
+}
+
+.profile__name-btn {
      float: right;
      height: 35px;
      width: 120px;
      border: 1px solid #000;
      border-radius: 20px;
-     margin-top: 10px;
- 
+
      display: flex;
      justify-content: center;
      align-items: center;
 }
 
-.text_area .mail_box {
-     margin-top: 40px;
-     display: inline-block;
-     height: 50px;
-     width: 420px;
-     /* border: 1px solid #000; */
+.profile__mail-box {
+     margin-top: 30px;
+     padding: 20px 0;
+     width: 400px;
 }
 
-.text_area .mail_box .mail {
-     width: 120px;
+.profile__mail {
+     width: 130px;
      float: left;
 }
 
-.text_area .logout_box {
-     /* margin-top: 40px; */
-     display: inline-block;
-     height: 30px;
-     width: 420px;
+.profile__logout-btn-box {
+     width: 400px;
 }
 
-.text_area .logout_btn {
+.profile__logout-btn {
      float: right;
      height: 35px;
      width: 120px;
      border-radius: 20px;
      border: 1px solid #000;
+
      display: flex;
      justify-content: center;
      align-items: center;
