@@ -1,0 +1,46 @@
+<div class="wrap">
+     <!-- 헤더 수정 예정 -->
+     <!-- <header class="header">헤더</header> -->
+     <!-- 헤더 아래 부분 -->
+     <section class="profile-section">
+       <h1>내 정보</h1>
+       <div class="profile">
+         <!-- 프로필 이미지 부분 -->
+         <div class="profile__image-box">
+          <form id="profileForm" onsubmit="changeProfile(event)">
+               <div class="profile__image">
+                    <label id="imgLabel" for="imgInput">
+                         <img id="profileView" width="200px" height="200px"  src=""/>
+                         <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
+                    </label>
+               </div>
+               <!-- <div class="profile__upload-btn"><span class="profile__upload-txt">이미지 변경</span></div> -->
+               <input id="profileBtn" class="profile__upload-btn" type="submit" value="이미지 변경" />
+          </form>
+        </div>
+   
+         <!-- 닉네임, 이메일 부분 -->
+         <div class="profile__text-box">
+           <div class="profile__name-box">
+             <strong class="profile__name">닉네임</strong>
+             <div class="profile__name-val">하리보</div>   
+           </div>
+           <div class="profile__name-btn-box">
+             <form id="profileForm" onsubmit="changeProfile(event)">
+               <input id="profileNickname" type="text" placeholder="변경할 닉네임" value="" />
+               <input id="profileBtn" class="profile__name-btn" type="submit" value="닉네임 수정" />
+             </form>
+             <!-- <button class="profile__name-btn">닉네임 수정</button> -->
+           </div>
+           <div class="profile__mail-box">
+             <strong class="profile__mail">이메일 주소</strong>
+             <!-- 메일 주소 가져오기 js 작업 예정 -->
+             <div class="profile__mail-val">aaa123@naver.com</div>  
+           </div>
+           <!-- <div class="profile__logout-btn-box">
+             <div class="profile__logout-btn">로그아웃</div>
+           </div> -->
+         </div>
+       </div>
+     </section>
+   </div>

@@ -1,0 +1,292 @@
+body {
+     background-color: #f1f1f2;
+}
+a {
+     text-decoration: none;
+     color: inherit
+}
+.header > a {
+     float: right;
+     height: 35px;
+     width: 120px;
+     border-radius: 20px;
+     border: 1px solid #000;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-right: 20px;
+}
+
+.post {
+     margin: 100px;
+     height: 300px;
+     width: 300px;
+     border: 1px solid #000;
+     border-radius: 20px;
+}
+
+.post > a {
+     font-size: 50px;
+}
+
+.wrap {
+     display: block;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     height: 100%;
+}
+
+/* 헤더 */
+.header {
+     width: 100%;
+     height: 100px;
+     border: 1px solid #000;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+/* 헤더 하단 컨텐츠 */
+.profile-section {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.profile-section > h1 {
+     width: 800px;
+     margin: 40px 0 15px 20px;
+     float: left;
+}
+
+.profile{
+     position: relative;
+     width: 800px;
+     height: 400px;
+     border: 1px solid #B2B2B2;
+     border-radius: 20px;
+     margin-bottom: 100px;
+     display: flex;
+     justify-content: center;
+     align-items: center
+}
+
+/* 프로필 이미지 부분 */
+.profile__image-box {
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     border-right: 1px solid #B2B2B2;
+     width: 300px;
+     height: 400px;
+     padding: 30px;
+}
+#imgLabel {
+     cursor: pointer;
+}
+
+#imgInput {
+     display: none;
+}
+
+.profile__image {
+     height: 200px;
+     height: 200px;
+     padding: 0;
+     border-radius: 140px;
+     border: 1px solid #dae1e6;
+     overflow: hidden;
+}
+
+.profile__upload-btn {
+     height: 40px;
+     width: 180px;
+     border: 1px solid #000;
+     border-radius: 20px;
+     margin-top: 40px;
+     margin-left: 10px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: transparent;
+     font-size: 17px;
+}
+
+.profile__upload-txt {
+     text-align: center;
+}
+
+/* 닉네임, 이메일 부분 */
+.profile__text-box {
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     width: 500px;
+     height: 400px;
+     padding: 70px 50px;
+}
+
+.profile__name, .profile__name-val, .profile__mail, .profile__mail-val {
+     font-size: 20px;
+}
+
+.profile__name-box {
+     padding: 20px 0;
+     width: 400px;
+}
+
+.profile__name {
+     width: 130px;
+     float: left;
+}
+
+.profile__name-btn-box {
+     width: 400px;
+}
+
+.profile__name-btn {
+     float: right;
+     height: 35px;
+     width: 120px;
+     border: 1px solid #000;
+     border-radius: 20px;
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.profile__mail-box {
+     margin-top: 25px;
+     padding: 20px 0;
+     width: 400px;
+}
+
+.profile__mail {
+     width: 130px;
+     float: left;
+}
+
+/* 닉네임 변경 모달창 */
+#modal {
+     position:relative;
+     width:100%;
+     height:100%;
+     z-index:1;
+   }
+   
+   #modal h2 {
+     margin:0;   
+   }
+   
+   #modal button {
+     display:inline-block;
+     width:100px;
+     margin-left:calc(100% - 100px - 10px);
+   }
+   
+   #modal .modal_content {
+     width:300px;
+     margin:100px auto;
+     padding:20px 10px;
+     background:#fff;
+     border:2px solid #666;
+   }
+   
+   #modal .modal_layer {
+     position:fixed;
+     top:0;
+     left:0;
+     width:100%;
+     height:100%;
+     background:rgba(0, 0, 0, 0.5);
+     z-index:-1;
+   }   
+
+
+
+
+
+
+#authPage {
+     width: 100%;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   
+   .authInput {
+     margin-bottom: 10px;
+   }
+   
+   .authInput > div {
+     width: 40px;
+     font-size: large;
+   }
+   
+   .authInput > input {
+     width: 100%;
+   }
+   
+   .socialBtns {
+     display: flex;
+     width: 100%;
+     justify-content: space-around;
+   }
+
+   #profileMngr {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+   }
+   
+   #profileMngr > button {
+     background-color: white;
+     font-size: medium;
+     padding: 5px 10px;
+   }
+   
+   #profileMngr > button:hover {
+     background-color: black;
+     color: white;
+   }
+   
+   .regBtn {
+     display: none;
+   }
+   
+   #authToggle {
+     text-decoration: underline;
+     color: blue;
+     margin: 10px 0;
+     cursor: pointer;
+     user-select: none;
+   }
+   
+   #authBtnSection {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+   
+   #authWrapper {
+     border: 1px solid black;
+     padding: 40px;
+     border-radius: 10px;
+     background-color: bisque;
+     min-width: 350px;
+   }
+   #authTitle {
+     text-align: center;
+   }
+
+
+
