@@ -48,10 +48,11 @@ export const handleLocation = async () => {
     
     debugger
     console.log(document.getElementById("profileView"))
+    // document.getElementById("profileView").src =
       // authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
 
-    if (authService.currentUser?.displayNameL) {
-      document.getElementById("profileNickname").attr("placeholder", authService.currentUser.profileNickname ?? "닉네임 없음"); 
+    if (authService.currentUser?.displayName) {
+      document.getElementById("profileNickname").attr("placeholder", authService.currentUser.displayName ?? "닉네임 없음"); 
     }
     // document.getElementById("profileNickname").placeholder =
     //   authService.currentUser.displayName ?? "닉네임 없음";

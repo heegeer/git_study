@@ -11,17 +11,22 @@ window.addEventListener("hashchange", handleLocation);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-
      handleLocation();
-
+   
      authService.onAuthStateChanged((user) => {
-          if (user) {
-               alert("로그인 상태")         
-          } else {
-               alert("로그아웃 상태")             
-          }
-          });
-});
+       if (user) {
+         alert("로그인 상태");
+
+         document.getElementById("profileView").src =
+           user.auth.currentUser.photoURL || "/assets/blankProfile.webp";
+         document.getElementById("profileNickname_val").textContent =
+           user.auth.currentUser.displayName || "닉네임 없음";
+
+       } else {
+         alert("로그아웃 상태");
+       }
+     });
+   });
 
 // 전역 함수 리스트
 // window.route = route;

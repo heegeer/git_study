@@ -10,7 +10,7 @@
           <form id="profileForm" onsubmit="changeProfile(event)">
                <div class="profile__image">
                     <label id="imgLabel" for="imgInput">
-                         <img id="profileView" width="200px" height="200px"  src=""/>
+                         <img id="profileView" src=""/>
                          <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
                     </label>
                </div>
@@ -23,7 +23,7 @@
          <div class="profile__text-box">
            <div class="profile__name-box">
              <strong class="profile__name">닉네임</strong>
-             <div class="profile__name-val">하리보</div>   
+             <div id="profileNickname_val" class="profile__name-val"></div>   
            </div>
            <div class="profile__name-btn-box">
              <form id="profileForm" onsubmit="changeProfile(event)">

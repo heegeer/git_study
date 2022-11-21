@@ -86,6 +86,7 @@ a {
      height: 400px;
      padding: 30px;
 }
+
 #imgLabel {
      cursor: pointer;
 }
@@ -101,6 +102,12 @@ a {
      border-radius: 140px;
      border: 1px solid #dae1e6;
      overflow: hidden;
+}
+
+#profileView {
+     object-fit: cover;
+     width: 200px;
+     height: 200px;
 }
 
 .profile__upload-btn {
