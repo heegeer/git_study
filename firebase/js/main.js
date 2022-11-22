@@ -1,7 +1,9 @@
 import { authService } from "./firebase.js";
 import { handleLocation } from "./router.js";
 import { handleAuth, onToggle } from "./pages/loginpage.js";
-import { changeProfile, onFileChange, nicknameBtn } from "./pages/profile.js";
+import { changeProfileImage, changeProfileNickname, onFileChange, nicknameBtn } from "./pages/profile.js";
+// import Swal from 'sweetalert2'
+// import { changeProfile, onFileChange, nicknameBtn } from "./pages/profile.js";
 
 // hash url 변경 시 처리
 window.addEventListener("hashchange", handleLocation);
@@ -15,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
      authService.onAuthStateChanged((user) => {
        
           if (user) {
-         alert("로그인 상태");
+     //     alert("로그인 상태");
 
          // 이미지, 닉네임 변경 시 업데이트 해주는 역할
          document.getElementById("profileView").src =
@@ -29,7 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
            
 
        } else {
-         alert("로그아웃 상태");
+     //     alert("로그아웃 상태");
+         Swal.fire('로그아웃 상태입니다')
        }
      });
    });
@@ -42,6 +45,9 @@ window.handleAuth = handleAuth;
 // window.socialLogin = socialLogin;
 // window.logout = logout;
 window.onFileChange = onFileChange;
-window.changeProfile = changeProfile;
+window.changeProfileImage = changeProfileImage;
+window.changeProfileNickname = changeProfileNickname;
+// window.changeProfile = changeProfile;
 window.nicknameBtn = nicknameBtn;
+// window.Swal = Swal;
 

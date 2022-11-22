@@ -42,15 +42,10 @@ export const handleLocation = async () => {
       authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
     document.getElementById("profileNickname_val").textContent =
       authService.currentUser.displayName ?? "닉네임 없음";
-    // document.getElementById("profileEmail").textContent =
-    //   user.email ?? "이메일 없음";  
-    // console.log(user.email)
-    
-    
-    
+    document.getElementById("profileEmail").textContent =
+      authService.currentUser.email ?? "이메일 없음";  
 
 
-    
     // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
     // displayName 값이 없다면 "닉네임 없음" 띄우기
     // null 병합 연산자 구조

@@ -95,19 +95,23 @@ a {
      display: none;
 }
 
-.profile__image {
-     height: 200px;
+/* .profile__image {
+     width: 200px;
      height: 200px;
      padding: 0;
      border-radius: 140px;
      border: 1px solid #dae1e6;
      overflow: hidden;
-}
+} */
 
+/* 프로필 이미지 */
 #profileView {
      object-fit: cover;
      width: 200px;
      height: 200px;
+     padding: 0;
+     border-radius: 140px;
+     border: 1px solid #dae1e6;
 }
 
 .profile__upload-btn {
@@ -116,12 +120,12 @@ a {
      border: 1px solid #000;
      border-radius: 20px;
      margin-top: 40px;
-     margin-left: 10px;
      display: flex;
      justify-content: center;
      align-items: center;
      background-color: transparent;
      font-size: 17px;
+     cursor: pointer;
 }
 
 .profile__upload-txt {
@@ -163,7 +167,6 @@ a {
 }
 
 .profile__name-val {
-     display: block;
      padding: 10px 0 10px 2px;
 }
 
@@ -173,8 +176,6 @@ a {
      border-radius: 5px;
      padding-left: 10px;
      border: 1px solid #dae1e6;
-     
-     display: none;
 }
 
 /* .profile__name-btn-box {
@@ -194,6 +195,7 @@ a {
      display: flex;
      justify-content: center;
      align-items: center;
+     cursor: pointer;
 }
 
 .profile__mail-box {

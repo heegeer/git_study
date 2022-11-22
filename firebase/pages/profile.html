@@ -6,8 +6,8 @@
        <h1>내 정보</h1>
        <div class="profile">
          <!-- 프로필 이미지 부분 -->
-         <div class="profile__image-box">
-          <form id="profileForm" onsubmit="changeProfile(event)">
+         
+          <form id="profileForm" class="profile__image-box" onsubmit="changeProfileImage(event)">
                <div class="profile__image">
                     <!-- label의 for="" 와 input의 id 값 -->
                     <label id="imgLabel" for="imgInput">
@@ -16,9 +16,9 @@
                     </label>
                </div>
                <!-- <div class="profile__upload-btn"><span class="profile__upload-txt">이미지 변경</span></div> -->
-               <input id="profileBtn" class="profile__upload-btn" type="submit" value="이미지 변경" />
+               <input id="profileImageBtn" class="profile__upload-btn" type="submit" value="이미지 변경" />
           </form>
-        </div>
+     
    
          <!-- 닉네임, 이메일 부분 -->
          <div class="profile__text-box">
@@ -28,11 +28,11 @@
            </div>
            <div class="profile__name-btn-box"> -->
             
-              <form id="profileForm" class="profile__name-box" onsubmit="changeProfile(event)">
+              <form id="profileForm" class="profile__name-box" onsubmit="changeProfileNickname(event)">
                 <strong class="profile__name">닉네임</strong>
-                <div id="profileNickname_val" class="profile__name-val"></div>   
-                <input id="profileNickname" class="profile__name-input" type="text" placeholder="변경할 닉네임" maxlength="10" value="" />
-                <input id="profileBtn" class="profile__name-btn" type="submit" onclick="nicknameBtn()" value="닉네임 수정" />
+                <div id="profileNickname_val" class="profile__name-val" style="display: block;"></div>   
+                <input id="profileNickname" class="profile__name-input" type="text" placeholder="변경할 닉네임" style="display: none;" maxlength="10" value="" />
+                <input id="profileNicknameBtn" class="profile__name-btn" type="submit" onclick="nicknameBtn()" value="닉네임 수정" />
               </form>
             
              <!-- <button class="profile__name-btn">닉네임 수정</button> -->

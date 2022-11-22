@@ -6,13 +6,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
 import { updateProfile } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-// import Swal from "sweetalert2/dist/sweetalert2.js"
 
-// 프로필 이미지 변경 함수
-export const changeProfileImage = async (event) => {
+// 프로필 변경 버튼을 누르면  함수가 실행됨
+export const changeProfile = async (event) => {
   event.preventDefault();
   // .disabled로 profileBtn 한 번만 클릭할 수 있도록 함 (한 번 클릭하면 비활성화됨)
-  document.getElementById("profileImageBtn").disabled = true;
+  // document.getElementById("profileBtn").disabled = true;
 
   const imgRef = ref(
     storageService,
@@ -21,6 +20,9 @@ export const changeProfileImage = async (event) => {
     `${authService.currentUser.uid}/${uuidv4()}`
   );
 
+  const newNickname = document.getElementById("profileNickname").value;
+  // const newImage = document.getElementById("profileView").src; // 이미지 변경 원함 - 새로운 이미지 인식
+  // 프로필 이미지 dataUrl을 Storage에 업로드 후 다운로드 링크를 받아서 photoURL에 저장.
   const imgDataUrl = localStorage.getItem("imgDataUrl");
   let downloadUrl; //새로운 프로필 이미지 url
   if (imgDataUrl) {
@@ -33,52 +35,56 @@ export const changeProfileImage = async (event) => {
     // 앞으로 화면에 프로필 이미지를 출력할 때 downloadUrl을 이용 할 것임
     downloadUrl = await getDownloadURL(response.ref);
 
-  await updateProfile(authService.currentUser, {
-    photoURL: downloadUrl ? downloadUrl : null
-  })
-    .then(() => {
-      // alert("이미지 수정 완료");
-      Swal.fire('프로필 이미지 변경 완료')
+  if (newNickname) {
+    await updateProfile(authService.currentUser, {
+      displayName: newNickname ? newNickname : null,
     })
-    .catch((error) => {
-      // alert("프로필 수정 실패");
-      Swal.fire('프로필 이미지 변경 실패')
-      console.log("error:", error);
-    });
+      .then(() => {
+          // 유저의 닉네임을 api 호출해서 가져온 후
+          alert("프로필 수정 완료");
+          const updatedDisplayName = authService.currentUser.displayName;
+          document.getElementById("profileNickname_val").textContent = updatedDisplayName;
+          // window.location.hash = "#profile";
+        })
+      .catch((error) => {
+        alert("프로필 수정 실패");
+        console.log("error:", error);
+      });
+  };
+
+  if (downloadUrl) {
+    await updateProfile(authService.currentUser, {
+      photoURL: downloadUrl ? downloadUrl : null,
+    })
+      .then(() => {
+          alert("프로필 수정 완료");
+        })
+      .catch((error) => {
+        alert("프로필 수정 실패");
+        console.log("error:", error);
+      });
+  };
       
   };
 
 };
 
-// 닉네임 변경 함수
-export const changeProfileNickname = async (event) => {
-  event.preventDefault();
-  // .disabled로 profileBtn 한 번만 클릭할 수 있도록 함 (한 번 클릭하면 비활성화됨)
-  // document.getElementById("profileNicknameBtn").disabled = true;
-
-  const newNickname = document.getElementById("profileNickname").value;
-
-  if (document.getElementById("profileNickname").value !== "") {
-
-    await updateProfile(authService.currentUser, {
-      displayName: newNickname ? newNickname : null,
-    })
-      .then(() => {
-        // alert("닉네임 수정 완료");
-        Swal.fire('닉네임 수정 완료')
-        const updatedDisplayName = authService.currentUser.displayName;
-          document.getElementById("profileNickname_val").textContent = updatedDisplayName;
-        //input창 리셋하기
-        document.getElementById("profileNickname").value = null;
-      })
-      .catch((error) => {
-        Swal.fire('닉네임 수정 실패')
-        // alert("프로필 수정 실패");
-        console.log("error:", error);
-      });
-       
-  };    
-};
+  //프로필 이미지 변경 API
+  // 현재 사용자 객체에서 displayName과 photoURL 변경
+  // 두개로 나눠주세요 - 데이터베이스에 한가지씩만 변경
+  // await updateProfile(authService.currentUser, {
+  //   displayName: newNickname ? newNickname : null,
+  //   photoURL: downloadUrl ? downloadUrl : null,
+  // })
+  //   .then(() => {
+  //     alert("프로필 수정 완료");
+  //     window.location.hash = "#profile";
+  //     // window.location.reload();
+  //   })
+  //   .catch((error) => {
+  //     alert("프로필 수정 실패");
+  //     console.log("error:", error);
+  //   });
 
 
 // 마이페이지의 프로필 이미지를 클릭해서 업로드할 이미지 파일을 선택하고 
@@ -100,8 +106,27 @@ export const onFileChange = (event) => {
   };
 };
 
+// let nicknameBtn = document.querySelector('.c1');
+
+// c1.addEventListener('click', function() {
+//   c1.classList.toggle('flipped');
+// });
 
 // 닉네임 버튼 클릭했을 때 input 창 띄우기 토글
+// let btn = document.getElementById('profileNickname_val');
+//       function change(){
+//           if(btn.value=="black"){
+//               btn.value= "white";
+//               document.querySelector('body').style.backgroundColor='black';
+//           }else{
+//           btn.value="black";
+//           document.querySelector('body').style.backgroundColor='white';
+      
+//       }
+//       }
+
+// 닉네임 버튼 클릭했을 때 input 창 띄우기 토글
+// function nicknameBtn() {
 export const nicknameBtn = () => {
 
   // 토글 할 버튼 선택 (btn1)
@@ -109,12 +134,12 @@ export const nicknameBtn = () => {
   const nameInput = document.getElementById('profileNickname');
   
   // btn1 숨기기 (display: none)
-  if(nameVal.style.display !== 'block') {
-    nameVal.style.display = 'block';
-    nameInput.style.display = 'none';
-  } else {
+  if(nameVal.style.display == 'block') {
     nameVal.style.display = 'none';
     nameInput.style.display = 'block';
+  } else {
+    nameVal.style.display = 'block';
+    nameInput.style.display = 'none';
   };
   
 };

@@ -6,7 +6,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
 import { updateProfile } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-// import Swal from "sweetalert2/dist/sweetalert2.js"
 
 // 프로필 이미지 변경 함수
 export const changeProfileImage = async (event) => {
@@ -37,12 +36,10 @@ export const changeProfileImage = async (event) => {
     photoURL: downloadUrl ? downloadUrl : null
   })
     .then(() => {
-      // alert("이미지 수정 완료");
-      Swal.fire('프로필 이미지 변경 완료')
+      alert("프로필 수정 완료");
     })
     .catch((error) => {
-      // alert("프로필 수정 실패");
-      Swal.fire('프로필 이미지 변경 실패')
+      alert("프로필 수정 실패");
       console.log("error:", error);
     });
       
@@ -57,27 +54,22 @@ export const changeProfileNickname = async (event) => {
   // document.getElementById("profileNicknameBtn").disabled = true;
 
   const newNickname = document.getElementById("profileNickname").value;
+ 
 
-  if (document.getElementById("profileNickname").value !== "") {
 
-    await updateProfile(authService.currentUser, {
-      displayName: newNickname ? newNickname : null,
+  await updateProfile(authService.currentUser, {
+    displayName: newNickname ? newNickname : null,
+  })
+    .then(() => {
+      alert("프로필 수정 완료");
+      const updatedDisplayName = authService.currentUser.displayName;
+        document.getElementById("profileNickname_val").textContent = updatedDisplayName;
     })
-      .then(() => {
-        // alert("닉네임 수정 완료");
-        Swal.fire('닉네임 수정 완료')
-        const updatedDisplayName = authService.currentUser.displayName;
-          document.getElementById("profileNickname_val").textContent = updatedDisplayName;
-        //input창 리셋하기
-        document.getElementById("profileNickname").value = null;
-      })
-      .catch((error) => {
-        Swal.fire('닉네임 수정 실패')
-        // alert("프로필 수정 실패");
-        console.log("error:", error);
-      });
-       
-  };    
+    .catch((error) => {
+      alert("프로필 수정 실패");
+      console.log("error:", error);
+    });
+      
 };
 
 
@@ -109,12 +101,12 @@ export const nicknameBtn = () => {
   const nameInput = document.getElementById('profileNickname');
   
   // btn1 숨기기 (display: none)
-  if(nameVal.style.display !== 'block') {
-    nameVal.style.display = 'block';
-    nameInput.style.display = 'none';
-  } else {
+  if(nameVal.style.display == 'block') {
     nameVal.style.display = 'none';
     nameInput.style.display = 'block';
+  } else {
+    nameVal.style.display = 'block';
+    nameInput.style.display = 'none';
   };
   
 };
