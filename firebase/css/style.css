@@ -145,21 +145,47 @@ a {
 }
 
 .profile__name-box {
-     padding: 20px 0;
+     display: flex;
+     flex-direction: column;
+     position: relative;
+     padding-bottom: 20px;
      width: 400px;
+     height: 100px;
 }
 
 .profile__name {
-     width: 130px;
+     /* width: 130px;
+     height: 44px;
      float: left;
+     display: flex;
+     align-items: center; */
+     padding: 10px 0;
 }
 
-.profile__name-btn-box {
-     width: 400px;
+.profile__name-val {
+     display: block;
+     padding: 10px 0 10px 2px;
 }
+
+.profile__name-input {
+     height: 40px;
+     width: 250px;
+     border-radius: 5px;
+     padding-left: 10px;
+     border: 1px solid #dae1e6;
+     
+     display: none;
+}
+
+/* .profile__name-btn-box {
+     width: 400px;
+} */
 
 .profile__name-btn {
-     float: right;
+     position: absolute;
+     bottom: 33px;
+     right: 0;
+
      height: 35px;
      width: 120px;
      border: 1px solid #000;
@@ -171,15 +197,22 @@ a {
 }
 
 .profile__mail-box {
-     margin-top: 25px;
      padding: 20px 0;
      width: 400px;
+     display: flex;
+     flex-direction: column;
 }
 
 .profile__mail {
-     width: 130px;
-     float: left;
+     padding: 10px 0;
 }
+
+.profile__mail-val {
+     padding: 10px 0 10px 2px;
+
+}
+
+
 
 /* 닉네임 변경 모달창 */
 #modal {

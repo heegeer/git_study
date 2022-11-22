@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 export const changeProfile = async (event) => {
   event.preventDefault();
   // .disabled로 profileBtn 한 번만 클릭할 수 있도록 함 (한 번 클릭하면 비활성화됨)
+
   document.getElementById("profileBtn").disabled = true;
   const imgRef = ref(
     storageService,
@@ -46,6 +47,7 @@ export const changeProfile = async (event) => {
     .then(() => {
       alert("프로필 수정 완료");
       window.location.hash = "#profile";
+      // window.location.reload();
     })
     .catch((error) => {
       alert("프로필 수정 실패");
@@ -70,4 +72,42 @@ export const onFileChange = (event) => {
     localStorage.setItem("imgDataUrl", imgDataUrl);
     document.getElementById("profileView").src = imgDataUrl;
   };
+};
+
+// let nicknameBtn = document.querySelector('.c1');
+
+// c1.addEventListener('click', function() {
+//   c1.classList.toggle('flipped');
+// });
+
+// 닉네임 버튼 클릭했을 때 input 창 띄우기 토글
+// let btn = document.getElementById('profileNickname_val');
+//       function change(){
+//           if(btn.value=="black"){
+//               btn.value= "white";
+//               document.querySelector('body').style.backgroundColor='black';
+//           }else{
+//           btn.value="black";
+//           document.querySelector('body').style.backgroundColor='white';
+      
+//       }
+//       }
+
+// 닉네임 버튼 클릭했을 때 input 창 띄우기 토글
+// function nicknameBtn() {
+export const nicknameBtn = () => {
+
+  // 토글 할 버튼 선택 (btn1)
+  const nameVal = document.getElementById('profileNickname_val');
+  const nameInput = document.getElementById('profileNickname');
+  
+  // btn1 숨기기 (display: none)
+  if(nameVal.style.display == 'block') {
+    nameVal.style.display = 'none';
+    nameInput.style.display = 'block';
+  } else {
+    nameVal.style.display = 'block';
+    nameInput.style.display = 'none';
+  };
+  
 };

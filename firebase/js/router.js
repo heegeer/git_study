@@ -35,25 +35,41 @@ export const handleLocation = async () => {
 // 특정 화면 렌더링 되자마자 DOM 조작 처리
 // 꼭 handleLocation 안에서 if문으로 path(어떤 화면인지)를 선택해야 함
   if (path === "profile") {
+
+
+    // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
+    document.getElementById("profileView").src =
+      authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
+    document.getElementById("profileNickname_val").textContent =
+      authService.currentUser.displayName ?? "닉네임 없음";
+    // document.getElementById("profileEmail").textContent =
+    //   user.email ?? "이메일 없음";  
+    // console.log(user.email)
+    
+    
+    
+
+
+    
     // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
     // displayName 값이 없다면 "닉네임 없음" 띄우기
     // null 병합 연산자 구조
     // authService.currentUser.displayName 값이 null 또는 undefined라면 "닉네임 없음"을 띄우고
     // 아니라면 authService.currentUser.displayName 값을 그대로 출력해라
-    console.log("authService:", authService)
-    debugger
-    if (authService.currentUser?.photoURL) {
-      document.getElementById("profileView").attr("src", authService.currentUser.photoURL ?? "/assets/blankProfile.webp"); 
-    }
+    // console.log("authService:", authService)
+    // debugger
+    // if (authService.currentUser?.photoURL) {
+    //   document.getElementById("profileView").attr("src", authService.currentUser.photoURL ?? "/assets/blankProfile.webp"); 
+    // }
     
-    debugger
-    console.log(document.getElementById("profileView"))
+    // debugger
+    // console.log(document.getElementById("profileView"))
     // document.getElementById("profileView").src =
       // authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
 
-    if (authService.currentUser?.displayName) {
-      document.getElementById("profileNickname").attr("placeholder", authService.currentUser.displayName ?? "닉네임 없음"); 
-    }
+    // if (authService.currentUser?.displayName) {
+    //   document.getElementById("profileNickname").attr("placeholder", authService.currentUser.displayName ?? "닉네임 없음"); 
+    // }
     // document.getElementById("profileNickname").placeholder =
     //   authService.currentUser.displayName ?? "닉네임 없음";
   }
